@@ -41,6 +41,7 @@
     <modules>
         <module>dubbo-demo-xml</module>
         <module>dubbo-demo-interface</module>
+        <module>dubbo-source-code</module>
     </modules>
 
     <dependencies>
