@@ -14,6 +14,8 @@ import org.apache.dubbo.rpc.*;
  * <p>
  * Date	      2019/1/30 17:18
  */
+// group = "consumer" 是必须的，否则就不会被加载，这个用来表示，这个 Filter 对客户端的请求进行过滤
+// 如果 group = "provider"，这个 Filter 只有在服务端才会被使用
 @Activate(group = "consumer")
 public class DemoFilter implements Filter {
 
