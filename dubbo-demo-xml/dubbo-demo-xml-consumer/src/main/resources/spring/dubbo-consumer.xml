@@ -25,6 +25,15 @@
 
     <dubbo:registry address="multicast://224.5.6.7:1234"/>
 
+    <!-- 消费方调用过程拦截 -->
+    <!--<dubbo:reference filter="demoFilter" />-->
+    <!-- 消费方调用过程缺省拦截器，将拦截所有reference -->
+    <!--<dubbo:consumer filter="demoFilter"/>-->
+    <!-- 提供方调用过程拦截 -->
+    <!--<dubbo:service filter="demoFilter" />-->
+    <!-- 提供方调用过程缺省拦截器，将拦截所有service -->
+    <!--<dubbo:provider filter="demoFilter"/>-->
+
     <!-- generate proxy for the remote service, then demoService can be used in the same way as the
     local regular interface -->
     <dubbo:reference id="demoService" check="false" interface="cn.web1992.dubbo.demo.DemoService"/>
