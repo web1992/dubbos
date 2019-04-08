@@ -16,9 +16,9 @@
  */
 package cn.web1992.dubbo.demo.provider;
 
+import cn.web1992.dubbo.demo.Demo;
 import cn.web1992.dubbo.demo.DemoService;
 import org.apache.dubbo.rpc.RpcContext;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,4 +31,10 @@ public class DemoServiceImpl implements DemoService {
         return "Hello " + name + ", response from provider: " + RpcContext.getContext().getLocalAddress();
     }
 
+    @Override
+    public Demo demo(Demo demo) {
+        System.out.println("demo = " + demo.getName());
+        demo.setName(demo.getName() + " after");
+        return demo;
+    }
 }
