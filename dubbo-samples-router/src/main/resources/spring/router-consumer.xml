@@ -24,7 +24,10 @@
 
     <!-- consumer's application name, used for tracing dependency relationship (not a matching criterion),
     don't set it same as provider -->
-    <dubbo:application name="demo-consumer"/>
+    <dubbo:application name="demo-consumer">
+        <!-- static tag -->
+        <dubbo:parameter key="dubbo.tag" value="test1"/>
+    </dubbo:application>
 
     <!-- use zookeeper registry center to discover service -->
     <dubbo:registry address="zookeeper://127.0.0.1:2181">

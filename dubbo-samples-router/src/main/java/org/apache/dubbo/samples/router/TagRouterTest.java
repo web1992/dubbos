@@ -24,23 +24,22 @@ import org.apache.curator.retry.ExponentialBackoffRetry;
 public class TagRouterTest {
     private static CuratorFramework client;
 
-    static {
+    public static void main(String[] args) throws InterruptedException {
         init();
-    }
-    public static void main(String[] args){
         normalTagRuleTest();
     }
 
-    public static void init() {
+    public static void init() throws InterruptedException {
         client = CuratorFrameworkFactory.newClient("127.0.0.1:2181", 60 * 1000, 60 * 1000, new ExponentialBackoffRetry(1000, 3));
         client.start();
+        client.blockUntilConnected();
     }
 
     public static void normalTagRuleTest() {
         String serviceStr = "---\n" +
                 "force: false\n" +
                 "runtime: true\n" +
-                "enabled: false\n" +
+                "enabled: true\n" +
                 "priority: 1\n" +
                 "key: demo-provider\n" +
                 "tags:\n" +

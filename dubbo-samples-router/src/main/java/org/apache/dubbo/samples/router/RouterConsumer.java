@@ -19,8 +19,11 @@
 
 package org.apache.dubbo.samples.router;
 
+import org.apache.dubbo.rpc.RpcContext;
 import org.apache.dubbo.samples.router.api.DemoService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import static org.apache.dubbo.common.Constants.TAG_KEY;
 
 public class RouterConsumer {
 
@@ -29,6 +32,10 @@ public class RouterConsumer {
         context.start();
         // get remote service proxy
         DemoService demoService = (DemoService) context.getBean("demoService");
+
+        // this tag has high priority then the tag in
+        // <dubbo:application />
+        RpcContext.getContext().setAttachment(TAG_KEY,"test-tag");
         System.out.println(demoService.sayHello("Dubbo"));
     }
 
