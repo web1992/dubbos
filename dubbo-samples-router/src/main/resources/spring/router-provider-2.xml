@@ -22,21 +22,21 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
 
-    <!-- consumer's application name, used for tracing dependency relationship (not a matching criterion),
-    don't set it same as provider -->
-    <dubbo:application name="demo-consumer">
-        <!-- static tag -->
-        <!--<dubbo:parameter key="dubbo.tag" value="tag1"/>-->
-    </dubbo:application>
+    <!-- provider's application name, used for tracing dependency relationship -->
+    <dubbo:application name="demo-provider"/>
 
-    <!-- use zookeeper registry center to discover service -->
+    <!-- use multicast registry center to export service -->
     <dubbo:registry address="zookeeper://127.0.0.1:2181">
         <dubbo:parameter key="qos.enable" value="false"/>
     </dubbo:registry>
 
+    <!-- use dubbo protocol to export service on port 20891 -->
+    <dubbo:protocol name="dubbo" port="20891"/>
 
-    <!-- generate proxy for the remote service, then demoService can be used in the same way as the
-    local regular interface -->
-    <dubbo:reference id="demoService" check="false" interface="org.apache.dubbo.samples.router.api.DemoService" />
+    <!-- service implementation, as same as regular local bean -->
+    <bean id="demoService" class="org.apache.dubbo.samples.router.impl.DemoServiceImpl"/>
+
+    <!-- declare the service interface to be exported -->
+    <dubbo:service interface="org.apache.dubbo.samples.router.api.DemoService" ref="demoService"/>
 
 </beans>

@@ -44,9 +44,9 @@ public class TagRouterTest {
                 "key: demo-provider\n" +
                 "tags:\n" +
                 "  - name: tag1\n" +
-                "    addresses: [\"30.5.120.37:20881\"]\n" +
+                "    addresses: [\"10.108.3.7:20890\"]\n" +
                 "  - name: tag2\n" +
-                "    addresses: [\"30.5.120.37:20880\"]\n" +
+                "    addresses: [\"10.108.3.7:20891\"]\n" +
                 "...";
         //        String serviceStr = "";
         try {
