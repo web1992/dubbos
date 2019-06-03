@@ -23,7 +23,10 @@
 
     <dubbo:application name="demo-consumer"/>
 
-    <dubbo:registry address="multicast://224.5.6.7:1234"/>
+    <!-- connections is the tcp connection between consumer and provider -->
+    <dubbo:consumer connections="3" threads="10" timeout="3000" retries="0" check="false"/>
+
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
 
     <!-- 消费方调用过程拦截 -->
     <!--<dubbo:reference filter="demoFilter" />-->
