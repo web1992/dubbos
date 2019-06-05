@@ -43,6 +43,7 @@
         <module>dubbo-demo-interface</module>
         <module>dubbo-source-code</module>
         <module>dubbo-samples-router</module>
+        <module>dubbo-2.6.x</module>
     </modules>
 
     <dependencies>
