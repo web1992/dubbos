@@ -16,11 +16,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <dubboversion>2.7</dubboversion>
     </properties>
+
 
     <profiles>
         <profile>
             <id>dubbo-2.7.x</id>
+            <activation>
+                <property>
+                    <name>${dubboversion}</name>
+                    <value>2.7</value>
+                </property>
+            </activation>
             <dependencyManagement>
                 <dependencies>
                     <dependency>
@@ -93,6 +102,12 @@
         </profile>
         <profile>
             <id>dubbo-2.6.x</id>
+            <activation>
+                <property>
+                    <name>${dubboversion}</name>
+                    <value>2.6</value>
+                </property>
+            </activation>
             <dependencies>
                 <dependency>
                     <groupId>com.alibaba</groupId>
