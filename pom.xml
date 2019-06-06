@@ -18,25 +18,90 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>dubbo-2.7.x</id>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-framework-bom</artifactId>
+                        <version>4.3.21.RELEASE</version>
+                        <type>pom</type>
+                        <scope>import</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.dubbo</groupId>
+                        <artifactId>dubbo-bom</artifactId>
+                        <version>2.7.1</version>
+                        <type>pom</type>
+                        <scope>import</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-web</artifactId>
+                </dependency>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-framework-bom</artifactId>
-                <version>4.3.21.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo-bom</artifactId>
-                <version>2.7.1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-config-spring</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-registry-zookeeper</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-registry-multicast</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-rpc-dubbo</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-remoting-netty4</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-serialization-hessian2</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-configcenter-zookeeper</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-metadata-report-zookeeper</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-metadata-report-redis</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-qos</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>dubbo-2.6.x</id>
+            <dependencies>
+                <dependency>
+                    <groupId>com.alibaba</groupId>
+                    <artifactId>dubbo</artifactId>
+                    <version>2.6.5</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
     <modules>
         <module>dubbo-demo-xml</module>
@@ -53,58 +118,6 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-config-spring</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-registry-zookeeper</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-registry-multicast</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-rpc-dubbo</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-remoting-netty4</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-serialization-hessian2</artifactId>
-        </dependency>
-       <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-configcenter-zookeeper</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-metadata-report-zookeeper</artifactId>
-        </dependency>
-        <!--
-       <dependency>
-           <groupId>org.apache.dubbo</groupId>
-           <artifactId>dubbo-metadata-report-redis</artifactId>
-       </dependency>
-       -->
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-qos</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>
