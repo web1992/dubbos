@@ -23,7 +23,8 @@ import org.apache.dubbo.rpc.RpcContext;
 import org.apache.dubbo.samples.router.api.DemoService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import static org.apache.dubbo.common.Constants.TAG_KEY;
+import static org.apache.dubbo.rpc.cluster.Constants.TAG_KEY;
+
 
 public class RouterConsumer {
 
