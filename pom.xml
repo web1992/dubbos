@@ -26,6 +26,12 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <modules>
+                <module>dubbo-demo-xml</module>
+                <module>dubbo-demo-interface</module>
+                <module>dubbo-source-code</module>
+                <module>dubbo-samples-router</module>
+            </modules>
             <dependencyManagement>
                 <dependencies>
                     <dependency>
@@ -108,16 +114,11 @@
                     <version>2.6.5</version>
                 </dependency>
             </dependencies>
+            <modules>
+                <module>dubbo-2.6.x</module>
+            </modules>
         </profile>
     </profiles>
-
-    <modules>
-        <module>dubbo-demo-xml</module>
-        <module>dubbo-demo-interface</module>
-        <module>dubbo-source-code</module>
-        <module>dubbo-samples-router</module>
-        <module>dubbo-2.6.x</module>
-    </modules>
 
     <dependencies>
         <dependency>
