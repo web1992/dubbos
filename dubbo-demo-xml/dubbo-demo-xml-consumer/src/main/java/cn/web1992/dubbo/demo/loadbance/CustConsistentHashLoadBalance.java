@@ -76,14 +76,16 @@ public class CustConsistentHashLoadBalance extends AbstractLoadBalance {
 
         String methodName = RpcUtils.getMethodName(invocation);
         String key = invokers.get(0).getUrl().getServiceKey() + "." + methodName;
-        int identityHashCode = System.identityHashCode(invokers);
+        int identityHashCode = invokers.hashCode();
+        // do not use method System.identityHashCode(invokers);
+        // identityHashCode mybe change but the invokers was not change
         if (STATE_UPDATER.get(this) == INIT_STATE) {
             if (STATE_UPDATER.compareAndSet(this, INIT_STATE, INIT_ING_STATE)) {
                 initVirtualInvokers(invokers, url, invocation, identityHashCode);
             }
         } else if (STATE_UPDATER.get(this) == DONE_STATE) {
             ConsistentHashSelector<?> consistentHashSelector = selectors.get(key);
-            if (consistentHashSelector.identityHashCode == identityHashCode) {
+            if (null != consistentHashSelector && consistentHashSelector.identityHashCode == identityHashCode) {
                 return (Invoker<T>) consistentHashSelector.select(invocation);
             } else {
                 if (STATE_UPDATER.compareAndSet(this, DONE_STATE, INIT_ING_STATE)) {
@@ -124,18 +126,13 @@ public class CustConsistentHashLoadBalance extends AbstractLoadBalance {
         public void run() {
             logger.info("CustConsistentHashLoadBalance start");
             long start = System.nanoTime();
-            String methods = url.getParameter("methods");
-            String[] split = methods.split(",");
-            if (split.length > 0) {
-                for (String methodName : split) {
-                    String key = invokers.get(0).getUrl().getServiceKey() + "." + methodName;
-                    selectors.put(key, new ConsistentHashSelector<T>(invokers, methodName, identityHashCode));
-                }
-            }
+            String methodName = RpcUtils.getMethodName(invocation);
+            String serviceKey = invokers.get(0).getUrl().getServiceKey() + "." + methodName;
+            selectors.put(serviceKey, new ConsistentHashSelector<T>(invokers, methodName, identityHashCode));
 
             STATE_UPDATER.compareAndSet(CustConsistentHashLoadBalance.this, INIT_ING_STATE, DONE_STATE);
 
-            logger.info("CustConsistentHashLoadBalance cost time = " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - start) + " ms");
+            logger.info("CustConsistentHashLoadBalance end cost time = " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - start) + " ms");
         }
     }
 
