@@ -30,7 +30,7 @@
     <dubbo:protocol name="dubbo"/>
 
     <!-- service implementation, as same as regular local bean -->
-    <bean id="demoService" class="cn.web1992.spring.boot.provider.impl.SpringBootDemoServiceImpl"/>
+    <bean id="demoService" class="cn.web1992.spring.boot.provider.impl.xml.XmlDemoServiceImpl"/>
 
     <!-- declare the service interface to be exported -->
     <dubbo:service interface="cn.web1992.dubbo.demo.DemoService" ref="demoService"/>
