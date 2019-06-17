@@ -33,14 +33,15 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
+import java.util.regex.Pattern;
 
-import static org.apache.dubbo.common.constants.CommonConstants.COMMA_SPLIT_PATTERN;
 
 /**
  * ConsistentHashLoadBalance
  */
 public class CustConsistentHashLoadBalance extends AbstractLoadBalance {
     private static final Logger logger = LoggerFactory.getLogger(CustConsistentHashLoadBalance.class);
+    public static final Pattern COMMA_SPLIT_PATTERN = Pattern.compile("\\s*[,]+\\s*");
     public static final String NAME = "custconsistenthash";
 
     /**

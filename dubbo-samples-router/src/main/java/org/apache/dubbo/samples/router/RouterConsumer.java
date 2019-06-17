@@ -23,7 +23,6 @@ import org.apache.dubbo.rpc.RpcContext;
 import org.apache.dubbo.samples.router.api.DemoService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import static org.apache.dubbo.rpc.cluster.Constants.TAG_KEY;
 
 
 public class RouterConsumer {
@@ -36,7 +35,7 @@ public class RouterConsumer {
 
         // this tag has high priority then the tag in
         // <dubbo:application />
-        RpcContext.getContext().setAttachment(TAG_KEY,"test-tag");
+        RpcContext.getContext().setAttachment("dubbo.tag","test-tag");
         System.out.println(demoService.sayHello("Dubbo"));
     }
 
