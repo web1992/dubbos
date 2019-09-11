@@ -17,6 +17,11 @@ public class Index {
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
 
+    @RequestMapping("/hello")
+    public Greeting hello(@RequestParam(value = "name", defaultValue = "provider") String name) {
+        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+    }
+
     class Greeting {
 
         private long id;
