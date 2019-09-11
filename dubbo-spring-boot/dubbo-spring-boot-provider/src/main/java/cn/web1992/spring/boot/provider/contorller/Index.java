@@ -17,6 +17,11 @@ public class Index {
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
 
+
+    @RequestMapping("/nihao")
+    public Greeting nihao(@RequestParam(value = "name", defaultValue = "provider") String name) {
+        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+    }
     class Greeting {
 
         private long id;
