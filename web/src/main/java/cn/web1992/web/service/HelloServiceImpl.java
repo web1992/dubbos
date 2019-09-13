@@ -13,4 +13,9 @@ public class HelloServiceImpl implements HelloService {
     public String bye() {
         return "Bye bye from HelloService";
     }
+
+    @Override
+    public String test() {
+        return null;
+    }
 }

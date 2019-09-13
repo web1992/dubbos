@@ -5,4 +5,6 @@ public interface HelloService {
     String say();
 
     String bye();
+
+    String test();
 }
