@@ -12,11 +12,11 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public String say() {
-        return "Hello from HelloService B";
+        return "CCC Hello from HelloService B";
     }
 
     @Override
     public String bye() {
-        return "Bye bye from HelloService";
+        return "DDD Bye bye from HelloService";
     }
 }
