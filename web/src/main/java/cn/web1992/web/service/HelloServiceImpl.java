@@ -4,6 +4,12 @@ package cn.web1992.web.service;
  * @author web1992
  */
 public class HelloServiceImpl implements HelloService {
+
+    @Override
+    public String nihao() {
+        return "你好！";
+    }
+
     @Override
     public String say() {
         return "Hello from HelloService B";
