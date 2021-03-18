@@ -20,7 +20,7 @@
     </modules>
     <packaging>pom</packaging>
 
-    <name>dubbos Maven Webapp</name>
+    <name>dubbo Apps</name>
     <url>https://github.com/web1992/dubbos</url>
 
     <properties>
