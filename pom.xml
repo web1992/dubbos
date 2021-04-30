@@ -50,7 +50,7 @@
                         <artifactId>spring-framework-bom</artifactId>
                         <!-- if you use spring boot,make sure spring version was same -->
                         <!--<version>4.3.21.RELEASE</version>-->
-                        <version>5.0.9.RELEASE</version>
+                        <version>5.0.19.RELEASE</version>
                         <type>pom</type>
                         <scope>import</scope>
                     </dependency>
