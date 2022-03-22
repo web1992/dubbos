@@ -3,6 +3,16 @@ package cn.web1992.spring.boot.provider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * 修改配置：
+ *
+ * @see cn.web1992.spring.boot.provider.impl.annotation.AnnotationDemoServiceImpl
+ * @see cn.web1992.spring.boot.provider.impl.xml.XmlDemoServiceImpl
+ * @see cn.web1992.spring.boot.provider.DubboAnnotationConfig
+ * @see cn.web1992.spring.boot.provider.DubboXmlConfig
+ * <p>
+ * 默认是走的 DubboAnnotationConfig 配置
+ */
 @SpringBootApplication
 public class ProviderApplication {
 
