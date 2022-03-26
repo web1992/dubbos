@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+/**
+ * 默认配置在 DubboAnnotationConfig 中，使用Nacos 作为注册中心
+ */
 @SpringBootApplication
 public class ConsumerApplication {
 

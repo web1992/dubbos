@@ -27,7 +27,8 @@ public class DubboAnnotationConfig {
     @Bean
     public RegistryConfig registryConfig() {
         RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setAddress("zookeeper://127.0.0.1:2181");
+        //registryConfig.setAddress("zookeeper://127.0.0.1:2181");
+        registryConfig.setAddress("nacos://124.223.35.219:8848");
         return registryConfig;
     }
 

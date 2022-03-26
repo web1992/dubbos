@@ -10,7 +10,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import java.util.HashMap;
 import java.util.Map;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class ConsumerApplicationGeneric {
 
     public static void main(String[] args) {
