@@ -36,7 +36,6 @@
             <groupId>cn.web1992</groupId>
             <artifactId>dubbo-demo-interface</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
