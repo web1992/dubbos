@@ -5,17 +5,20 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.io.IOException;
+
 /**
  * 默认配置在 DubboAnnotationConfig 中，使用Nacos 作为注册中心
  */
 @SpringBootApplication
 public class ConsumerApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ConfigurableApplicationContext context = SpringApplication.run(ConsumerApplication.class, args);
 
         DemoService demoService = context.getBean(DemoService.class);
         String s = demoService.sayHello("ConsumerApplication");
         System.out.println(s);
+        System.in.read();
     }
 }

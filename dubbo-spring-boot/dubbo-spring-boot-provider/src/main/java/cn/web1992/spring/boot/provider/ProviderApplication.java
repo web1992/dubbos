@@ -1,5 +1,7 @@
 package cn.web1992.spring.boot.provider;
 
+import cn.web1992.spring.boot.provider.config.DubboAnnotationConfig;
+import cn.web1992.spring.boot.provider.config.DubboXmlConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,8 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @see cn.web1992.spring.boot.provider.impl.annotation.AnnotationDemoServiceImpl
  * @see cn.web1992.spring.boot.provider.impl.xml.XmlDemoServiceImpl
- * @see cn.web1992.spring.boot.provider.DubboAnnotationConfig
- * @see cn.web1992.spring.boot.provider.DubboXmlConfig
+ * @see DubboAnnotationConfig
+ * @see DubboXmlConfig
  * <p>
  * 默认是走的 DubboAnnotationConfig 配置
  */
