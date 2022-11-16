@@ -1,26 +1,17 @@
+package cn.web1992.spring.boot.consumer.utils;
 
-package com.internet.msgcenter.client.util;
-
-import com.internet.msgcenter.entity.msgevent.MsgEventAttach;
-import javassist.ClassClassPath;
 import javassist.ClassPool;
 import javassist.CtClass;
 import javassist.CtField;
 import javassist.CtNewMethod;
 import javassist.LoaderClassPath;
-import javassist.bytecode.AccessFlag;
 import javassist.bytecode.AnnotationsAttribute;
 import javassist.bytecode.ClassFile;
 import javassist.bytecode.ConstPool;
 import javassist.bytecode.FieldInfo;
 import javassist.bytecode.annotation.Annotation;
 import javassist.bytecode.annotation.StringMemberValue;
-import lombok.extern.slf4j.Slf4j;
-import net.pocrd.entity.RegisterClazzInfo;
-import net.pocrd.entity.RegisterFieldInfo;
 
-import java.io.DataOutputStream;
-import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -29,11 +20,10 @@ import java.util.concurrent.ConcurrentMap;
 /**
  *
  */
-@Slf4j
 public class ApiClazzGenUtils {
 
     private static final String EVENT_CLASS = "com.internet.msgcenter.entity.msgevent.MsgEventAttach";
-    private static final String DESC_ANNO = "net.pocrd.annotation.Description";
+    private static final String DESC_ANNO = "org.springframework.web.bind.annotation.RestController";
     private static final String REGISTER_ENABLE = "net.pocrd.annotation.RegisterEnable";
     private static final String DESC_ANNO_VALUE = "value";
 
@@ -105,7 +95,7 @@ public class ApiClazzGenUtils {
             CLASS_INSTANCES.putIfAbsent(name, clazz);
             return clazz;
         } catch (Exception e) {
-            log.error("ApiClazzGenUtils#genClazz ex", e);
+            //log.error("ApiClazzGenUtils#genClazz ex", e);
             return null;
         }
 
